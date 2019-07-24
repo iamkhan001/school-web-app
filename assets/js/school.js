@@ -71,7 +71,7 @@ function showSchoolList(listSchool){
         "<td>"+school.username+"</td>"+
         "<td>"+school.phone+"</td>"+
         "<td class='text-center'>"+
-        "<button id=sc_"+school.id+" class='btn btn-primary scEdit' style='background-color: rgb(45,200,32);' onclick='editSchool("+i+")'>Edit</button>"+
+        "<button id=sc_"+school.id+" class='btn btn-primary scEdit' style='background-color: rgb(45,200,32);' onclick='editSchoolInfo("+i+")'>Edit</button>"+
         "</td><td></td>"+
       "</tr>";
 
@@ -131,7 +131,7 @@ function registerSchool() {
             "<td>"+school.name+"</td>"+
             "<td>"+school.username+"</td>"+
             "<td>"+school.phone+"</td>"+
-            "<td class='text-center'><button id='sc_"+school.id+"' class='btn btn-primary scEdit'  style='background-color: rgb(45,200,32);' onclick='editSchool("+selectionSchool+")'>Edit</button></td><td></td>"+
+            "<td class='text-center'><button id='sc_"+school.id+"' class='btn btn-primary scEdit'  style='background-color: rgb(45,200,32);' onclick='editSchoolInfo("+selectionSchool+")'>Edit</button></td><td></td>"+
           "</tr>";
 
           document.getElementById("sc_tr_"+schoolId).innerHTML = x;
@@ -163,7 +163,7 @@ function registerSchool() {
             "<td>"+school.name+"</td>"+
             "<td>"+school.username+"</td>"+
             "<td>"+school.phone+"</td>"+
-            "<td class='text-center'><button id='sc_"+school.id+"' class='btn btn-primary scEdit'  style='background-color: rgb(45,200,32);' onclick='editSchool("+index+")'>Edit</button></td><td></td>"+
+            "<td class='text-center'><button id='sc_"+school.id+"' class='btn btn-primary scEdit'  style='background-color: rgb(45,200,32);' onclick='editSchoolInfo("+index+")'>Edit</button></td><td></td>"+
           "</tr>";
 
         $(x).appendTo("#schoolTable tbody");
@@ -175,7 +175,7 @@ function registerSchool() {
  
 
 
-function editSchool(position){
+function editSchoolInfo(position){
   document.getElementById("formSchool").reset();
 
   console.log(position+" count > "+listSchool.length);
