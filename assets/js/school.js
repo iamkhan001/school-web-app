@@ -72,7 +72,7 @@ function showSchoolList(listSchool){
         "<td>"+school.phone+"</td>"+
         "<td class='text-center'>"+
         "<button id=sc_"+school.id+" class='btn btn-primary scEdit' style='background-color: rgb(45,200,32);' onclick='editSchoolInfo("+i+")'>Edit</button>"+
-        "</td><td></td>"+
+        "</td>"+
       "</tr>";
 
 
@@ -80,9 +80,8 @@ function showSchoolList(listSchool){
    document.getElementById("schoolList").innerHTML = x;
 }
  
-function validateAndSubmit(f) {
+function validateAndSubmit() {
 
-  f.preventDefault();
 
   let username     = document.getElementById("fUsename").value;
    if (username === "imran") {
@@ -102,7 +101,9 @@ function validateAndSubmit(f) {
 
  }
  
-function registerSchool() {
+function registerSchool(event) {
+
+  event.preventDefault();
   
   let inName     = document.getElementById("fName");
   let inUsername = document.getElementById("fUsename");
@@ -131,7 +132,7 @@ function registerSchool() {
             "<td>"+school.name+"</td>"+
             "<td>"+school.username+"</td>"+
             "<td>"+school.phone+"</td>"+
-            "<td class='text-center'><button id='sc_"+school.id+"' class='btn btn-primary scEdit'  style='background-color: rgb(45,200,32);' onclick='editSchoolInfo("+selectionSchool+")'>Edit</button></td><td></td>"+
+            "<td class='text-center'><button id='sc_"+school.id+"' class='btn btn-primary scEdit'  style='background-color: rgb(45,200,32);' onclick='editSchoolInfo("+selectionSchool+")'>Edit</button></td>"+
           "</tr>";
 
           document.getElementById("sc_tr_"+schoolId).innerHTML = x;
@@ -163,7 +164,7 @@ function registerSchool() {
             "<td>"+school.name+"</td>"+
             "<td>"+school.username+"</td>"+
             "<td>"+school.phone+"</td>"+
-            "<td class='text-center'><button id='sc_"+school.id+"' class='btn btn-primary scEdit'  style='background-color: rgb(45,200,32);' onclick='editSchoolInfo("+index+")'>Edit</button></td><td></td>"+
+            "<td class='text-center'><button id='sc_"+school.id+"' class='btn btn-primary scEdit'  style='background-color: rgb(45,200,32);' onclick='editSchoolInfo("+index+")'>Edit</button></td>"+
           "</tr>";
 
         $(x).appendTo("#schoolTable tbody");

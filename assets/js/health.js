@@ -12,7 +12,7 @@ function initHealth(){
   $("#mDatePicker").on("change",function(){  
     selectedDate = $(this).val();  
     console.log("date > "+selectedDate);
-    document.getElementById("selectedDate").innerHTML = "Date: "+selectedDate;
+  
   }); 
 }
 

@@ -17,6 +17,7 @@ function initClass(){
   spanClass = document.getElementsByClassName("close")[0];
 
 
+
   btnAddClass.onclick = function() {
     document.getElementById("formClass").reset();
 
@@ -71,7 +72,6 @@ function showClassList(listClass){
       "<td class='text-center'>"+
         "<button class='btn btn-primary' style='background-color: rgb(45,200,32);' onclick='editClassDetails("+i+")'>Edit</button>"+
       "</td>"+
-      "<td></td>"+
       "</tr>";
 
    }
@@ -79,7 +79,7 @@ function showClassList(listClass){
 }
   
 function saveClass() {
-  
+ 
   let inClassName   = document.getElementById("fClassName");
   let inTeacher     = document.getElementById("fTeacherName");
  
@@ -104,7 +104,6 @@ function saveClass() {
           "<td class='text-center'>"+
             "<button class='btn btn-primary' style='background-color: rgb(45,200,32);' onclick='editClassDetails("+selectionClass+")'>Edit</button>"+
           "</td>"+
-          "<td></td>"+
           "</tr>";
           document.getElementById("cl_tr_"+classId).innerHTML = x;
 
@@ -134,7 +133,6 @@ function saveClass() {
         "<td class='text-center'>"+
           "<button class='btn btn-primary' style='background-color: rgb(45,200,32);' onclick='editClassDetails("+index+")'>Edit</button>"+
         "</td>"+
-        "<td></td>"+
         "</tr>";
 
         $(x).appendTo("#classTable tbody");

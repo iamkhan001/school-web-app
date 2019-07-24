@@ -81,6 +81,8 @@ function showRobotList(listRobot){
   
 function saveRobot() {
   
+ 
+  
   let inSrNo   = document.getElementById("fSrNo");
   let inType   = document.getElementById("fType");
  

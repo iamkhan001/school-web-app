@@ -141,9 +141,8 @@ function showStudentList(listStudent){
    document.getElementById("studentList").innerHTML = x;
 }
   
-function saveStudent(mForm) {
-
-  mForm.preventDefault();
+function saveStudent() {
+  
   
   let inFirstName   = document.getElementById("fFirstName");
   let inLastName    = document.getElementById("fLastName");
