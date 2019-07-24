@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - Mi Robotic</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="assets/css/divider-text-middle.css">
+    <link rel="stylesheet" href="assets/css/gradient-navbar-1.css">
+    <link rel="stylesheet" href="assets/css/gradient-navbar.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
+    <link rel="stylesheet" href="assets/css/Profile-Edit-Form-1.css">
+    <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
+    <link rel="stylesheet" href="assets/css/Responsive-footer-1.css">
+    <link rel="stylesheet" href="assets/css/Responsive-footer.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+    <link rel="stylesheet" href="assets/css/Material-Card.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand text-left d-flex justify-content-center align-items-center sidebar-brand m-0" href="#" style="padding: 0px;">
+                    <div class="sidebar-brand-icon rotate-n-15"></div>
+                    <div class="sidebar-brand-text mx-3"></div><img src="assets/img/logo.png" style="width: 60px;height: 60 px;"><span>Mi Robotic</span></a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link" id="navClass" href="schools.html"><i class="fas fa-school"></i><span>&nbsp;Schools</span></a></li>
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" id="navStudents" href="classes.html"><i class="material-icons">school</i><span>&nbsp;Classes</span></a><a class="nav-link" id="navStudents" href="students.html"><i class="fas fa-users"></i><span>&nbsp;Students</span></a></li>
+                    <li
+                        class="nav-item" role="presentation"><a class="nav-link active" href="health.html"><i class="fas fa-temperature-low"></i><span>&nbsp;Health Records</span></a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" id="navRobot" href="robots.html"><i class="material-icons">android</i><span>&nbsp;Robots</span></a><a class="nav-link" id="navRobot" href="settings.html"><i class="material-icons">settings</i><span>&nbsp;Settings</span></a>
+                            <a
+                                class="nav-link" id="navRobot" href="login.html"><i class="icon ion-log-out"></i><span>&nbsp; Logout</span></a>
+                        </li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow" role="presentation"><span class="d-none d-lg-inline mr-2 text-gray-600 small" style="font-size: 18px;">Admin</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg" style="width: 49px;margin-right: 0;"></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid" id="optionView" ng-include="">
+                    <div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="padding-top: 15px;padding-right: 10px;padding-bottom: 15px;padding-left: 10px;">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Normal</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>100</span></div>
+                                        </div>
+                                        <div class="col-auto"><img src="assets/img/checked.png"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="padding-top: 15px;padding-right: 10px;padding-bottom: 15px;padding-left: 10px;">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span style="color: rgb(255,138,0);">Fever</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>12</span></div>
+                                        </div>
+                                        <div class="col-auto"><img src="assets/img/thermometer.png"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="padding-top: 15px;padding-right: 10px;padding-bottom: 15px;padding-left: 10px;">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span style="color: rgb(255,61,0);">HYPERTHERMIA</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>0</span></div>
+                                        </div>
+                                        <div class="col-auto"><img src="assets/img/temperature.png"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="padding-top: 15px;padding-right: 10px;padding-bottom: 15px;padding-left: 10px;">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span style="color: rgb(28,190,200);">Hypothermia</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>0</span></div>
+                                        </div>
+                                        <div class="col-auto"><img src="assets/img/cold.png"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4" style="padding-top: 30px;">
+                        <h3 class="text-dark mb-0">Temperature</h3>
+                    </div>
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <div class="row">
+                                <div class="col">
+                                    <h4>All Students</h4>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="dropdown d-lg-flex justify-content-lg-end"><button class="btn btn-light dropdown-toggle text-right" data-toggle="dropdown" aria-expanded="false" type="button">All Classes</button>
+                                        <div class="dropdown-menu text-left" role="menu"><a class="dropdown-item" role="presentation" href="#">Nursery</a><a class="dropdown-item" role="presentation" href="#">Jr KG</a><a class="dropdown-item" role="presentation" href="#">Sr KG</a></div>
+                                    </div>
+                                </div>
+                                <div class="col-auto"><input type="date" style="margin: 10px;"></div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                <table class="table dataTable my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Photo</th>
+                                            <th>Student Name</th>
+                                            <th>Class</th>
+                                            <th>Temperature</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><img class="rounded-circle" src="assets/img/girl.png" style="width: 64px;"></td>
+                                            <td>Ayesha Ansari</td>
+                                            <td>Nursery</td>
+                                            <td>40</td>
+                                            <td>12 Jully 2019</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class="rounded-circle" src="assets/img/girl.png" style="width: 64px;"></td>
+                                            <td>Priyanka</td>
+                                            <td>Nursery<br></td>
+                                            <td>40</td>
+                                            <td>12 Jully 2019</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class="rounded-circle" src="assets/img/girl.png" style="width: 64px;"></td>
+                                            <td>Jovy</td>
+                                            <td>Nursery<br></td>
+                                            <td>40</td>
+                                            <td>12 Jully 2019</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class="rounded-circle" src="assets/img/boy.png" style="width: 64px;"></td>
+                                            <td>Imran Khan</td>
+                                            <td>Nursery<br></td>
+                                            <td>40</td>
+                                            <td>12 Jully 2019</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class="rounded-circle" src="assets/img/boy.png" style="width: 64px;"><br></td>
+                                            <td>Brenden Wagner<br></td>
+                                            <td>Nursery<br></td>
+                                            <td>40</td>
+                                            <td>12 Jully 2019</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td><strong>Photo</strong></td>
+                                            <td><strong>Student Name</strong></td>
+                                            <td><strong>Class Name</strong><br></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Mi Robotic 2019</span></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/login.js"></script>
+    <script src="assets/js/Profile-Edit-Form.js"></script>
+    <script src="assets/js/school.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
