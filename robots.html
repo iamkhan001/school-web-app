@@ -18,9 +18,9 @@
     <link rel="stylesheet" href="assets/css/gradient-navbar-1.css">
     <link rel="stylesheet" href="assets/css/gradient-navbar.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/modal.css">
-    <link rel="stylesheet" href="assets/css/Profile-Edit-Form-1.css">
-    <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
+    <!-- <link rel="stylesheet" href="assets/css/modal.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/Profile-Edit-Form-1.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css"> -->
     <link rel="stylesheet" href="assets/css/Responsive-footer-1.css">
     <link rel="stylesheet" href="assets/css/Responsive-footer.css">
     <link rel="stylesheet" href="assets/css/untitled.css">
@@ -84,39 +84,34 @@
     </div>
   
     <div id="mRobot" class="modal">
-
+        <div class="modal-dialog modal-md">
             <!-- Modal content -->
             <div class="modal-content">
-                
+                <div class="modal-header">
+                    <!-- <span class="close">&times;</span> -->                    
+                    <h4 class="modal-title">Register New Robot</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
                 <div class="modal-body">
                     <form id= "formRobot" onsubmit="return saveClass()">
-                        <div class="form-row profile-row">
-                            <div class="col-md-8">
-                                <div class="modal-header">
-                                    <span class="close">&times;</span>
-                                    <h2>Register New Robot</h2>
+                        <div class="form-row">
+                            <div class="form-row">
+                                <div class="col-sm-12">
+                                    <div class="form-group"><label>Serial Number</label><input class="form-control" type="text" id="fSrNo" required=""></div>
                                 </div>
-                                <hr>
-                                <div class="form-row">
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-group"><label>Serial Number</label><input class="form-control" type="text" id="fSrNo" required=""></div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-group"><label>Type</label><input class="form-control" type="text" id="fType" required = ""></div>
-                                    </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group"><label>Type</label><input class="form-control" type="text" id="fType" required = ""></div>
                                 </div>
-                                <hr>
-                                <div class="form-row">
-                                    <div class="col-md-12 content-right">
-                                        <button class="btn btn-success form-btn" id="btnSave">SAVE </button>
-                                        <button class="btn btn-danger form-btn" id="btnCancel" type="reset">CANCEL </button>
-                                    </div>
+                                <div class="col-md-12 content-right">
+                                    <button class="btn btn-success form-btn" id="btnSave">SAVE </button>
+                                    <button class="btn btn-danger form-btn" id="btnCancel" type="reset">CANCEL </button>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+        </div>
     </div>
 
     <script src="assets/js/jquery.min.js"></script>
