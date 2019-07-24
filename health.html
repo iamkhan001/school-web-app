@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="assets/css/untitled.css">
     <link rel="stylesheet" href="assets/css/Material-Card.css">
     <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    
 </head>
 
 <body id="page-top">
@@ -68,7 +70,7 @@
                                     <div class="row align-items-center no-gutters">
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Normal</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span>100</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span id="countNormal">0</span></div>
                                         </div>
                                         <div class="col-auto"><img src="assets/img/checked.png"></div>
                                     </div>
@@ -79,7 +81,7 @@
                                     <div class="row align-items-center no-gutters">
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span style="color: rgb(255,138,0);">Fever</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span>12</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span id="countFever">0</span></div>
                                         </div>
                                         <div class="col-auto"><img src="assets/img/thermometer.png"></div>
                                     </div>
@@ -90,7 +92,7 @@
                                     <div class="row align-items-center no-gutters">
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span style="color: rgb(255,61,0);">HYPERTHERMIA</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span>0</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span id="countHyperthermia">0</span></div>
                                         </div>
                                         <div class="col-auto"><img src="assets/img/temperature.png"></div>
                                     </div>
@@ -101,7 +103,7 @@
                                     <div class="row align-items-center no-gutters">
                                         <div class="col mr-2">
                                             <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span style="color: rgb(28,190,200);">Hypothermia</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span>0</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span id="countHypothermia">0</span></div>
                                         </div>
                                         <div class="col-auto"><img src="assets/img/cold.png"></div>
                                     </div>
@@ -115,20 +117,26 @@
                     <div class="card shadow">
                         <div class="card-header py-3">
                             <div class="row">
-                                <div class="col">
+                                <div id="selectedClass" class="col">
                                     <h4>All Students</h4>
                                 </div>
+                                <div class="col">
+                                        <h4 id="selectedDate">Date</h4>
+                                </div>
                                 <div class="col-auto">
-                                    <div class="dropdown d-lg-flex justify-content-lg-end"><button class="btn btn-light dropdown-toggle text-right" data-toggle="dropdown" aria-expanded="false" type="button">All Classes</button>
-                                        <div class="dropdown-menu text-left" role="menu"><a class="dropdown-item" role="presentation" href="#">Nursery</a><a class="dropdown-item" role="presentation" href="#">Jr KG</a><a class="dropdown-item" role="presentation" href="#">Sr KG</a></div>
+                                   
+                                    <div id="btnSelectClass" class="dropdown d-lg-flex justify-content-lg-end"><button class="btn btn-light dropdown-toggle text-right" data-toggle="dropdown" aria-expanded="false" type="button">Select Class</button>
+                                        <div id= "menuClassList" class="dropdown-menu text-left" role="menu">
+                                       
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-auto"><input type="date" style="margin: 10px;"></div>
+                                <div class="col-auto"><input id="mDatePicker" style="margin: 10px;"></div>
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                                <table class="table dataTable my-0" id="dataTable">
+                                <table class="table dataTable my-0" id="healthTable">
                                     <thead>
                                         <tr>
                                             <th>Photo</th>
@@ -138,53 +146,11 @@
                                             <th>Date</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><img class="rounded-circle" src="assets/img/girl.png" style="width: 64px;"></td>
-                                            <td>Ayesha Ansari</td>
-                                            <td>Nursery</td>
-                                            <td>40</td>
-                                            <td>12 Jully 2019</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="rounded-circle" src="assets/img/girl.png" style="width: 64px;"></td>
-                                            <td>Priyanka</td>
-                                            <td>Nursery<br></td>
-                                            <td>40</td>
-                                            <td>12 Jully 2019</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="rounded-circle" src="assets/img/girl.png" style="width: 64px;"></td>
-                                            <td>Jovy</td>
-                                            <td>Nursery<br></td>
-                                            <td>40</td>
-                                            <td>12 Jully 2019</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="rounded-circle" src="assets/img/boy.png" style="width: 64px;"></td>
-                                            <td>Imran Khan</td>
-                                            <td>Nursery<br></td>
-                                            <td>40</td>
-                                            <td>12 Jully 2019</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="rounded-circle" src="assets/img/boy.png" style="width: 64px;"><br></td>
-                                            <td>Brenden Wagner<br></td>
-                                            <td>Nursery<br></td>
-                                            <td>40</td>
-                                            <td>12 Jully 2019</td>
-                                        </tr>
+                                    <tbody id="heathRecords">
+                                        
                                     </tbody>
                                     <tfoot>
-                                        <tr>
-                                            <td><strong>Photo</strong></td>
-                                            <td><strong>Student Name</strong></td>
-                                            <td><strong>Class Name</strong><br></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                                        
                                     </tfoot>
                                 </table>
                             </div>
@@ -205,8 +171,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/login.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
-    <script src="assets/js/school.js"></script>
+    <script src="assets/js/health.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
 </body>
 
 </html>

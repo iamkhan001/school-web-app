@@ -62,23 +62,30 @@
                 </nav>
                 <div class="container-fluid" id="optionView" ng-include="">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4" style="padding-top: 30PX;">
-                        <h3 class="text-dark mb-0">Students</h3><a class="btn btn-primary d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-plus-square fa-sm text-white-50"></i>&nbsp;Add Class</a></div>
+                        <h3 class="text-dark mb-0">Students</h3><a class="btn btn-primary d-none d-sm-inline-block" id="btnAddStudent" href="#">
+                            <i class="fas fa-plus-square fa-sm text-white-50"></i>&nbsp;Add Student
+                        </a>
+                    </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
                             <div class="row">
-                                <div class="col">
+                                <div id="selectedClass" class="col">
                                     <h4>All Students</h4>
                                 </div>
+                            
                                 <div class="col-auto">
-                                    <div class="dropdown d-lg-flex justify-content-lg-end"><button class="btn btn-light dropdown-toggle text-right" data-toggle="dropdown" aria-expanded="false" type="button">All Classes</button>
-                                        <div class="dropdown-menu text-left" role="menu"><a class="dropdown-item" role="presentation" href="#">Nursery</a><a class="dropdown-item" role="presentation" href="#">Jr KG</a><a class="dropdown-item" role="presentation" href="#">Sr KG</a></div>
+                                    <div id="btnSelectClass" class="dropdown d-lg-flex justify-content-lg-end">
+                                        <button class="btn btn-light dropdown-toggle text-right" data-toggle="dropdown" aria-expanded="false" type="button">Select Class</button>
+                                        <div id= "menuClassList" class="dropdown-menu text-left" role="menu">
+                                       
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                                <table class="table dataTable my-0" id="dataTable">
+                                <table class="table dataTable my-0" id="studentTable">
                                     <thead>
                                         <tr>
                                             <th class="tableHead">Photo</th>
@@ -86,49 +93,11 @@
                                             <th>Class</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><img class="rounded-circle" src="assets/img/girl.png" style="width: 64px;"></td>
-                                            <td>&nbsp;Aarti G</td>
-                                            <td>Nursery</td>
-                                            <td class="text-center"><button class="btn btn-primary" type="button" style="background-color: rgb(45,200,32);">Edit</button></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="rounded-circle" src="assets/img/girl.png" style="width: 64px;"></td>
-                                            <td>Amruta</td>
-                                            <td>Jr. KG</td>
-                                            <td class="text-center"><button class="btn btn-primary" type="button" style="background-color: rgb(45,200,32);">Edit</button></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="rounded-circle" src="assets/img/boy.png" style="width: 64px;"></td>
-                                            <td>Shoeb</td>
-                                            <td>Sr KG</td>
-                                            <td class="text-center"><button class="btn btn-primary" type="button" style="background-color: rgb(45,200,32);">Edit</button></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="rounded-circle" src="assets/img/boy.png" style="width: 64px;"></td>
-                                            <td>Amol</td>
-                                            <td>1st</td>
-                                            <td class="text-center"><button class="btn btn-primary" type="button" style="background-color: rgb(45,200,32);">Edit</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td><br><img class="rounded-circle" src="assets/img/girl.png" style="width: 64px;"></td>
-                                            <td>Shraddha</td>
-                                            <td>2nd</td>
-                                            <td class="text-center"><button class="btn btn-primary" type="button" style="background-color: rgb(45,200,32);">Edit</button></td>
-                                        </tr>
+                                    <tbody id = "studentList">
+                                       
                                     </tbody>
                                     <tfoot>
-                                        <tr>
-                                            <td><strong>Class Name</strong><br></td>
-                                            <td><strong>Teacher Name</strong></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                                       
                                     </tfoot>
                                 </table>
                             </div>
@@ -143,52 +112,70 @@
             </footer>
         </div>
     </div>
-    <div id="mSctudent" class="modal">
-        <form style="padding: 10px;">
-            <div class="form-row profile-row">
-                <div class="col-md-4 relative">
-                    <div class="avatar">
-                        <h5>Student Photo</h5>
-                        <div class="avatar-bg center"></div>
-                    </div><input type="file" id="fFileInput" class="form-control" name="avatar-file"></div>
-                <div class="col-md-8">
-                    <h1>Register Student</h1>
-                    <hr>
-                    <div class="form-row">
-                        <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label>First Name</label><input class="form-control" type="text" id="fFirstName"></div>
-                        </div>
-                        <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label>Last Name</label><input class="form-control" type="text" id="fLastName"></div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label>Roll Number</label><input class="form-control" type="text" id="fRollNumber"></div>
-                        </div>
-                        <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label>Class</label>
-                                <div class="dropdown" id="fDwSelectClass"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Select Class&nbsp;</button>
-                                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+    
+    <div id="mStudent" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            
+            <div class="modal-body">
+                <form id= "formStudent" style="padding: 10px;" onsubmit="return saveStudent(this)">
+                    <div class="form-row profile-row">
+                        <div class="col-md-4 relative">
+                            <div class="avatar">
+                                <h5>Student Photo</h5>
+                                <div class="avatar-bg center"></div>
+                            </div><input type="file" id="fFileInput" class="form-control" name="avatar-file"></div>
+                        <div class="col-md-8">
+                            <span class="close">&times;</span>
+                            <h1>Register Student</h1>
+                            <hr>
+                            <div class="form-row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group"><label>First Name</label><input class="form-control" type="text" id="fFirstName" required = ""></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group"><label>Last Name</label><input class="form-control" type="text" id="fLastName" required = ""></div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group"><label>Roll Number</label><input class="form-control" type="text" id="fRollNumber" required = ""></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label>Class</label>
+                                        <h5 id="classToRegister"></h5>
+                                        <div class="dropdown" id="fDwSelectClass">
+                                            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Select Class&nbsp;</button>
+                                            <div id="modalClassList" class="dropdown-menu" role="menu">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-row">
+                                <div class="col-md-12 content-right">
+                                    <button class="btn btn-success form-btn" id="btnSave"   >SAVE </button>
+                                    <button class="btn btn-danger form-btn" id="btnCancel" type="reset">CANCEL </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <hr>
-                    <div class="form-row">
-                        <div class="col-md-12 content-right"><button class="btn btn-success form-btn" id="btnSave" type="submit">SAVE </button><button class="btn btn-danger form-btn" id="btnCancel" type="reset">CANCEL </button></div>
-                    </div>
-                </div>
+                </form>
             </div>
-        </form>
-    </div>
+        </div>
+</div>
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/login.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
-    <script src="assets/js/school.js"></script>
+    <script src="assets/js/student.js"></script>
     <script src="assets/js/theme.js"></script>
 </body>
 

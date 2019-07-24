@@ -60,8 +60,6 @@ function saveClass() {
   let inClassName   = document.getElementById("fClassName");
   let inTeacher     = document.getElementById("fTeacherName");
  
-  let msg = inClassName.value+" Class Registered Successfully"
-  alert(msg);
 
       if(edit){
         var mClass = {

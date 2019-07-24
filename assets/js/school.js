@@ -56,7 +56,10 @@ function showList(json){
    document.getElementById("schoolList").innerHTML = x;
 }
  
-function checkUsername() {
+function validateAndSubmit(f) {
+
+  f.preventDefault();
+
   let username     = document.getElementById("fUsename").value;
    if (username === "imran") {
      alert("Username "+username+" already exist");
@@ -84,8 +87,6 @@ function registerSchool() {
   let inEmail    = document.getElementById("fEmail");
   let inAddress  = document.getElementById("fAddress");
 
-  let msg = inName.value+" School Registered Successfully"
-  alert(msg);
 
       if(edit){
 

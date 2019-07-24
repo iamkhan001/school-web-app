@@ -108,20 +108,19 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Register New Class</h2>
-            </div>
-            <hr>
+            
             <div class="modal-body">
-                <form id= "formClass" >
+                <form id= "formClass" onsubmit="return saveClass()">
                     <div class="form-row profile-row">
                         <div class="col-md-8">
-                            <h1>Register Class</h1>
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <h2>Register New Class</h2>
+                            </div>
                             <hr>
                             <div class="form-row">
                                 <div class="col-sm-12 col-md-6">
-                                    <div class="form-group"><label>Class Name</label><input class="form-control" type="text" id="fClassName"></div>
+                                    <div class="form-group"><label>Class Name</label><input class="form-control" type="text" id="fClassName" required=""></div>
                                 </div>
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group"><label>Teacher Neme</label><input class="form-control" type="text" id="fTeacherName"></div>
@@ -130,7 +129,7 @@
                             <hr>
                             <div class="form-row">
                                 <div class="col-md-12 content-right">
-                                    <button class="btn btn-success form-btn" id="btnSave" onclick="saveClass()">SAVE </button>
+                                    <button class="btn btn-success form-btn" id="btnSave">SAVE </button>
                                     <button class="btn btn-danger form-btn" id="btnCancel" type="reset">CANCEL </button>
                                 </div>
                             </div>
