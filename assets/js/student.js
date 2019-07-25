@@ -30,13 +30,34 @@ function initStudent(){
     editStudent = false;
     loadClassListToAddStudent();
     modalStudent.style.display = "block";
- }
+  }
  
   spanStudent.onclick = function() {
     modalStudent.style.display = "none";
   }
   
+  $('#formStudent').submit(function (e) {
+
+    e.preventDefault();
+    saveStudent();
+  });
  
+  $("#fStudentPhoto").change(function() {
+    getStudentPhoto(this);
+  });
+
+}
+
+function getStudentPhoto(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#imgStudent').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
 }
 
 
@@ -125,15 +146,15 @@ function showStudentList(listStudent){
   console.log("count > "+listStudent.length);
   for(i in listStudent){
     let student = listStudent[i];
-    var stId = "st_tr_"+student.id;
+    var stId = "st_tr_"+i;
 
     console.log("class > "+stId+"");
 
-    x+=  "<tr id= st_tr_"+student.id+" >"+
+    x+=  "<tr id= "+stId+" >"+
           "<td><img class='rounded-circle' src='assets/img/girl.png' style='width: 64px;'></td>"+
           "<td>"+student.first_name+" "+student.last_name+"</td>"+
           "<td>"+student.class_name+"</td>"+
-          "<td class='text-center'><button class='btn btn-primary' style='background-color: rgb(45,200,32);' onclick='editStudent("+i+")'>Edit</button></td>"+
+          "<td class='text-center'><button class='btn btn-primary' style='background-color: rgb(45,200,32);' onclick='editStudentInfo("+i+")'>Edit</button></td>"+
           "<td></td>"+
         "</tr>";
    }
@@ -171,15 +192,15 @@ function saveStudent() {
 
         listStudent[selectionStudent] = student;
         
-        x =  "<tr id= st_tr_"+student.id+" >"+
+        x =  "<tr id= st_tr_"+selectionStudent+" >"+
                 "<td><img class='rounded-circle' src='assets/img/girl.png' style='width: 64px;'></td>"+
                 "<td>"+student.first_name+" "+student.last_name+"</td>"+
                 "<td>"+student.class_name+"</td>"+
-                "<td class='text-center'><button class='btn btn-primary' style='background-color: rgb(45,200,32);' onclick='editStudent("+selectionStudent+")'>Edit</button></td>"+
+                "<td class='text-center'><button class='btn btn-primary' style='background-color: rgb(45,200,32);' onclick='editStudentInfo("+selectionStudent+")'>Edit</button></td>"+
                 "<td></td>"+
               "</tr>";
 
-          document.getElementById("st_tr_"+studnetId).innerHTML = x;
+          document.getElementById("st_tr_"+selectionStudent).innerHTML = x;
 
           console.log(x);
 
@@ -201,11 +222,11 @@ function saveStudent() {
         console.log("after add > "+listStudent.length);
         var index = listStudent.length-1;
  
-        x =  "<tr id= st_tr_"+student.id+" >"+
+        x =  "<tr id= st_tr_"+index+" >"+
               "<td><img class='rounded-circle' src='assets/img/girl.png' style='width: 64px;'></td>"+
               "<td>"+student.first_name+" "+student.last_name+"</td>"+
               "<td>"+student.class_name+"</td>"+
-              "<td class='text-center'><button class='btn btn-primary' style='background-color: rgb(45,200,32);' onclick='editStudent("+index+")'>Edit</button></td>"+
+              "<td class='text-center'><button class='btn btn-primary' style='background-color: rgb(45,200,32);' onclick='editStudentInfo("+index+")'>Edit</button></td>"+
               "<td></td>"+
             "</tr>";
 
@@ -232,7 +253,7 @@ function selectClassToRegister(id,name){
 }
 
 
-function editStudent(position){
+function editStudentInfo(position){
   document.getElementById("formStudent").reset();
 
   loadClassListToAddStudent();

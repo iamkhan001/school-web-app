@@ -1,8 +1,6 @@
 
 let modalClass;
-
 let btnAddClass;
-
 let spanClass;
 
 var listClass; 
@@ -30,6 +28,13 @@ function initClass(){
     modalClass.style.display = "none";
     }
     loadClassList();
+
+      
+  $('#formClass').submit(function (e) {
+
+    e.preventDefault();
+    saveClass();
+  });
 
 }
 
@@ -60,12 +65,12 @@ function showClassList(listClass){
   console.log("count > "+listClass.length);
   for(i in listClass){
     let mClass = listClass[i];
-    var clId = "cl_tr_"+mClass.id;
+    var clId = "cl_tr_"+i;
 
     
     console.log("class > "+clId+"");
     
-    x+= "<tr id= cl_tr_"+mClass.id+" >"+
+    x+= "<tr id= "+clId+" >"+
       "<td>"+mClass.name+"</td>"+
       "<td>"+mClass.teacher_name+"</td>"+
       "<td>"+mClass.no_of_students+"</td>"+
@@ -85,6 +90,7 @@ function saveClass() {
  
 
       if(editClass){
+
         var mClass = {
           "id":classId,
           "name":inClassName.value,
@@ -97,7 +103,8 @@ function saveClass() {
         }
 
         listClass[selectionClass] = mClass;
-        var x = "<tr id= cl_tr_"+listClass.length+" >"+
+        
+        var x = "<tr id= cl_tr_"+selectionClass+" >"+
           "<td>"+mClass.name+"</td>"+
           "<td>"+mClass.teacher_name+"</td>"+
           "<td>"+mClass.no_of_students+"</td>"+
@@ -105,7 +112,7 @@ function saveClass() {
             "<button class='btn btn-primary' style='background-color: rgb(45,200,32);' onclick='editClassDetails("+selectionClass+")'>Edit</button>"+
           "</td>"+
           "</tr>";
-          document.getElementById("cl_tr_"+classId).innerHTML = x;
+          document.getElementById("cl_tr_"+selectionClass).innerHTML = x;
 
           console.log(x);
 
@@ -126,7 +133,7 @@ function saveClass() {
         console.log("after add > "+listClass.length);
         var index = listClass.length-1;
  
-        var x = "<tr id= cl_tr_"+listClass.length+" >"+
+        var x = "<tr id= cl_tr_"+index+" >"+
         "<td>"+mClass.name+"</td>"+
         "<td>"+mClass.teacher_name+"</td>"+
         "<td>"+mClass.no_of_students+"</td>"+

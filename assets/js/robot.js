@@ -7,7 +7,7 @@ let spanRobot;
 
 var listRobot; 
 var roboId;
-var edit;
+var editRobot;
 var selection;
 
 function initRobot(){
@@ -20,7 +20,7 @@ function initRobot(){
   btnAddRobot.onclick = function() {
     document.getElementById("formRobot").reset();
 
-    edit = false;
+    editRobot = false;
 
     modalRobot.style.display = "block";
   }
@@ -30,6 +30,14 @@ function initRobot(){
   spanRobot.onclick = function() {
     modalRobot.style.display = "none";
   }
+
+    
+  $('#formRobot').submit(function (e) {
+
+    e.preventDefault();
+    saveRobot();
+  });
+ 
   
  
 }
@@ -61,19 +69,18 @@ function showRobotList(listRobot){
 
   for(i in listRobot){
     let robot = listRobot[i];
-    var rbId = "rb_tr_"+robot.id;
+    var rbId = "rb_tr_"+i;
 
     console.log("class > "+rbId+"");
 
-    x+= "<div id= rb_tr_"+robot.id+" class='col-sm-4 col-lg-3 col-md-3 col-xl-2' style='margin-bottom: 30px;' onclick='editRobot("+i+")'>"+
+    x+= "<div id= "+rbId+" class='col-sm-4 col-lg-3 col-md-3 col-xl-2' style='margin-bottom: 30px;'>"+
               "<div class='card text-nowrap text-truncate text-break d-inline-block'>"+
                 "<div class='card-body text-center' style='width: 100%;'><img class='d-xl-flex align-items-xl-center' style='margin: 0 auto;width: 315px;max-width: 100%;' src='assets/img/robo-snow.png'>"+
-                  "<h4 class='text-center card-title' style='margin: 15px;'><strong>"+robot.type+"</strong><br></h4>"+
-                  "<h6 class='text-center text-muted card-subtitle mb-2'>S/N "+robot.sr_no+"</h6>"+
+                  "<h4 class='text-center card-title' style='margin: 15px;' id=rb_type_"+i+"><strong>"+robot.type+"</strong><br></h4>"+
+                  "<h6 class='text-center text-muted card-subtitle mb-2' id=rb_sr_"+i+" onclick='editRobotInfo("+i+")'>S/N "+robot.sr_no+"</h6>"+
                 "</div>"+
               "</div>"+
         "</div>";
-
    }
 
    document.getElementById("roboList").innerHTML = x;
@@ -81,13 +88,12 @@ function showRobotList(listRobot){
   
 function saveRobot() {
   
- 
-  
   let inSrNo   = document.getElementById("fSrNo");
   let inType   = document.getElementById("fType");
  
 
-      if(edit){
+      if(editRobot){
+
         var robot = {
           "id":roboId,
           "sr_no":inSrNo.value,
@@ -95,16 +101,11 @@ function saveRobot() {
           "account_id": 1
         }
 
+      
         listRobot[selection] = robot;
-        var x = "<div id= rb_tr_"+robot.id+" class='col-sm-4 col-lg-3 col-md-3 col-xl-2' style='margin-bottom: 30px;' onclick='editRobot("+selection+")'>"+
-                  "<div class='card text-nowrap text-truncate text-break d-inline-block'>"+
-                    "<div class='card-body text-center' style='width: 100%;'><img class='d-xl-flex align-items-xl-center' style='margin: 0 auto;width: 315px;max-width: 100%;' src='assets/img/robo-snow.png'>"+
-                      "<h4 class='text-center card-title' style='margin: 15px;'><strong>"+robot.type+"</strong><br></h4>"+
-                      "<h6 class='text-center text-muted card-subtitle mb-2'>S/N "+robot.sr_no+"</h6>"+
-                    "</div>"+
-                  "</div>"+
-                "</div>";
-          document.getElementById("cl_tr_"+classId).innerHTML = x;
+       
+          document.getElementById("rb_type_"+selection).innerHTML = "<strong>"+robot.type+"</strong> <br>";
+          document.getElementById("rb_sr_"+selection).innerHTML = "S/N "+robot.sr_no;
 
           console.log(x);
 
@@ -117,20 +118,20 @@ function saveRobot() {
         }
 
         console.log("before add > "+listRobot.length);
-        listRobot[listRobot.length] = mClass;
+        listRobot[listRobot.length] = robot;
         console.log("after add > "+listRobot.length);
         var index = listRobot.length-1;
  
-        var x = "<div id= rb_tr_"+robot.id+" class='col-sm-4 col-lg-3 col-md-3 col-xl-2' style='margin-bottom: 30px;' onclick='editRobot("+index+")'>"+
+        var x = "<div id= rb_tr_"+index+" class='col-sm-4 col-lg-3 col-md-3 col-xl-2' style='margin-bottom: 30px;'>"+
                   "<div class='card text-nowrap text-truncate text-break d-inline-block'>"+
                     "<div class='card-body text-center' style='width: 100%;'><img class='d-xl-flex align-items-xl-center' style='margin: 0 auto;width: 315px;max-width: 100%;' src='assets/img/robo-snow.png'>"+
-                      "<h4 class='text-center card-title' style='margin: 15px;'><strong>"+robot.type+"</strong><br></h4>"+
-                      "<h6 class='text-center text-muted card-subtitle mb-2'>S/N "+robot.sr_no+"</h6>"+
+                      "<h4 class='text-center card-title' style='margin: 15px;' id=rb_type_"+index+"><strong>"+robot.type+"</strong><br></h4>"+
+                      "<h6 class='text-center text-muted card-subtitle mb-2' id=rb_sr_"+index+"  onclick='editRobotInfo("+index+")'>S/N "+robot.sr_no+"</h6>"+
                     "</div>"+
                   "</div>"+
                 "</div>";
 
-        $(x).appendTo("#classTable tbody");
+        $(x).appendTo("#roboList");
 
         console.log(x);
       }
@@ -139,7 +140,7 @@ function saveRobot() {
  
 
 
-function editRobot(position){
+function editRobotInfo(position){
   document.getElementById("formRobot").reset();
 
   console.log(position+" count > "+listRobot.length);
@@ -155,7 +156,7 @@ function editRobot(position){
   inSrNo.value = robot.sr_no;
   inType.value = robot.type;
 
-  edit = true;
+  editRobot = true;
   selection = position;
 
   roboId = robot.id;

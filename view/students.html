@@ -59,14 +59,14 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form id= "formStudent" style="padding: 10px;" onsubmit="saveStudent()">
+                <form id= "formStudent" style="padding: 10px;" >
                     <div class="form-row profile-row">
                         <div class="col-md-4 relative">
                             <div class="avatar">
                                 <h5>Student Photo</h5>
-                                <img src="https://www.gravatar.com/avatar/1234566?size=200&d=mm" class="mb-3">
+                                <img id="imgStudent" src="assets/img/user.png" width="200" height="200"  class="mb-3">
                                 <!-- <div class="avatar-bg center"></div> -->
-                            </div><input type="file" id="fFileInput" class="form-control" name="avatar-file"></div>
+                            </div><input type="file" id="fStudentPhoto" class="form-control" name="avatar-file"></div>
                         <div class="col-md-8">
                             <div class="form-row">
                                 <div class="col-sm-12 col-md-6">
@@ -95,7 +95,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12 content-right">
-                                    <button class="btn btn-success form-btn" id="btnSaveStudent">SAVE</button>
+                                    <button class="btn btn-success form-btn"  type= "submit"  id="btnSaveStudent">SAVE</button>
                                     <button class="btn btn-danger form-btn" type="reset">RESET</button>
                                 </div>
                             </div>

@@ -1,12 +1,28 @@
-function login(){
+
+let txtError;
+
+$(document).ready(function(){
     
     var inUsername = document.getElementById("username");
     var inPassword = document.getElementById("password");
-    
-    if(inUsername.value == "admin" && inPassword.value == "1234"){
-        window.open("classes.html");
-    }else{
-        
+    txtError  = document.getElementById("txtError");
+
+    $('#formLogin').submit(function (e) {
+        txtError.innerHTML = "";
+        e.preventDefault();
+        checkLogin(inUsername,inPassword);
+      });
+     
+});
+
+function checkLogin(username,password){
+
+    if(username.value == "admin" && password.value == "admin"){
+        window.location.replace("home.html");
+        return;
     }
+
+    txtError.innerHTML = "Invalid Username or Password";
     
+
 }

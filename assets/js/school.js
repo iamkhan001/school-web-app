@@ -30,7 +30,29 @@ function initSchool(){
     modalSchool.style.display = "none";
   }
   
+  $('#formSchool').submit(function (e) {
+
+    e.preventDefault();
+    validateAndSubmit();
+  });
+
+  $("#fSchoolLogo").change(function() {
+    getLogo(this);
+  });
+
  
+}
+
+function getLogo(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#imgLogo').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
 }
 
 
@@ -60,7 +82,7 @@ function showSchoolList(listSchool){
   console.log("count > "+listSchool.length);
   for(i in listSchool){
     let school = listSchool[i];
-    var scId = "sc_tr_"+school.id;
+    var scId = "sc_tr_"+i;
 
     
     console.log("school > "+scId+"");
@@ -82,6 +104,7 @@ function showSchoolList(listSchool){
  
 function validateAndSubmit() {
 
+  
 
   let username     = document.getElementById("fUsename").value;
    if (username === "imran") {
@@ -99,11 +122,17 @@ function validateAndSubmit() {
 
    registerSchool();
 
+  
+   
  }
  
-function registerSchool(event) {
 
-  event.preventDefault();
+
+
+
+function registerSchool() {
+
+ 
   
   let inName     = document.getElementById("fName");
   let inUsername = document.getElementById("fUsename");
@@ -127,7 +156,8 @@ function registerSchool(event) {
         
 
         listSchool[selectionSchool] = school;
-        var x = "<tr id= sc_tr_"+schoolId+" >"+
+
+        var x = "<tr id= sc_tr_"+selectionSchool+" >"+
             "<td><img class='rounded-circle' src='assets/img/university.png' style='width: 64px;'></td>"+
             "<td>"+school.name+"</td>"+
             "<td>"+school.username+"</td>"+
@@ -135,7 +165,7 @@ function registerSchool(event) {
             "<td class='text-center'><button id='sc_"+school.id+"' class='btn btn-primary scEdit'  style='background-color: rgb(45,200,32);' onclick='editSchoolInfo("+selectionSchool+")'>Edit</button></td>"+
           "</tr>";
 
-          document.getElementById("sc_tr_"+schoolId).innerHTML = x;
+          document.getElementById("sc_tr_"+selectionSchool).innerHTML = x;
 
           console.log(x);
 
@@ -153,13 +183,12 @@ function registerSchool(event) {
         
 
         console.log("before add > "+listSchool.length);
-        listSchool[listSchool.length] = school;
+        listSchool.push(school);
         console.log("after add > "+listSchool.length);
+        
         var index = listSchool.length-1;
 
-
-
-        var x = "<tr id= sc_tr_"+listSchool.length+" >"+
+        var x = "<tr id= sc_tr_"+index+" >"+
             "<td><img class='rounded-circle' src='assets/img/university.png' style='width: 64px;'></td>"+
             "<td>"+school.name+"</td>"+
             "<td>"+school.username+"</td>"+
@@ -171,6 +200,7 @@ function registerSchool(event) {
 
         console.log(x);
       }
+      //alert("School Registered Successfully!");
       modalSchool.style.display = "none";
 }
  
@@ -183,7 +213,7 @@ function editSchoolInfo(position){
 
   let school = listSchool[position];
 
-  var scId = "sc_tr_"+school.id+"";    
+  var scId = "sc_tr_"+position+"";    
   console.log("edit > "+scId);
 
   let inName      = document.getElementById("fName");
